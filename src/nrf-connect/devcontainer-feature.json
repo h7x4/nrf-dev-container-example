@@ -1,0 +1,37 @@
+{
+    "name": "nRF Connect",
+    "id": "nrf-connect",
+    "description": "Tools for developing with devices supporting nRF Connect",
+    "version": "1.0.0",
+    "installsAfter": [
+        "ghcr.io/devcontainers/features/common-utils"
+    ],
+    "options": {
+        "command-line-tools-version": {
+            "type": "string",
+            "proposals": [
+                "10-19-0/nrf-command-line-tools_10.19.0",
+                "10-20-2/nrf-command-line-tools_10.20.2",
+                "10-21-0/nrf-command-line-tools_10.21.0",
+                "10-22-0/nrf-command-line-tools_10.22.0"
+            ],
+            "default": "10-22-0/nrf-command-line-tools_10.22.0"
+        },
+        "sdk-version": {
+            "type": "string",
+            "proposals": [
+                "v2.3.0",
+                "v2.4.0"
+            ],
+            "default": "v2.4.0"
+        },
+        "project-type": {
+            "type": "string",
+            "enum": [
+                "workspace",
+                "freestanding"
+            ],
+            "default": "workspace"
+        }
+    }
+}
