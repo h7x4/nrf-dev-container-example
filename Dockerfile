@@ -23,4 +23,14 @@ RUN nrfutil toolchain-manager env --as-script sh >> /etc/envvars
 RUN echo "source /etc/envvars" >> /etc/profile
 RUN echo "source /etc/envvars" >> /etc/bash.bashrc
 
+# https://developer.nordicsemi.com/nRF_Connect_SDK/doc/latest/nrf/getting_started/installing.html
+RUN mkdir /ncs
+WORKDIR /ncs
+RUN . /etc/envvars && west init -m https://github.com/nrfconnect/sdk-nrf --mr ${NRF_CONNECT_SDK_VERSION}
+RUN . /etc/envvars && west update -n -o=--depth=1 -o=-j4
+RUN . /etc/envvars && west zephyr-export
+# Some steps have been skipped, because the tools are already included in the toolchain
+
+WORKDIR /workdir
+
 CMD ["/usr/bin/env", "bash"]

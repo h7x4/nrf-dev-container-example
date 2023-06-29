@@ -4,6 +4,5 @@
       "vscode": {
         "extensions": ["nordic-semiconductor.nrf-connect-extension-pack"]
       }
-    },
-    "updateContentCommand": "west init -l . && west update -n -o=--depth=1 -o=-j4"
+    }
   }
